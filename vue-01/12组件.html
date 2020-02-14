@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<hello>
+				<div slot="one"> 我替换第一个slot </div>
+				<div slot="two"> 我替换第二个slot </div>
+				<div slot="three"> 我替换第三个slot </div>
+				
+			</hello>
+		</div>
+		
+		<script type="text/javascript">
+			Vue.component('hello',{
+				template:`
+					<div>
+						<span>首页</span>
+						<slot name="two"><h3>我是老二</h3></slot>
+						<slot name="one"><h3>我是老大</h3></slot>
+						<slot name="three"><h3>我是老三</h3></slot>
+						涉及到付款的时间发货看电视
+					</div>
+				`
+			})
+			new Vue({
+				el:"#app",
+			})
+		</script>
+	</body>
+</html>

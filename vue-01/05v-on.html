@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+	</head>
+	<body>
+		<div id="app">
+			<!--v-on:click可以简写为@click-->
+			<input type="button" name="" id="" value="增加" @click="big()"/>
+			<input type="button" name="" id="" value="减小" @click="small()"/>
+			<h1>{{n}}</h1>	
+		</div>
+		<script type="text/javascript">
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				info:"hello world",
+				n:0
+			},
+			methods:{
+				big:function(){
+					this.n++;
+				},
+				small(){
+					this.n--;
+				}
+			}
+		})
+		</script>
+	</body>
+</html>

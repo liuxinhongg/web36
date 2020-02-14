@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 90%;
+				overflow: hidden;
+				margin: 100px auto;
+				padding: 20px;
+				border: 2px solid red;
+				list-style: none;
+			}
+			.box li{
+				width: 200px;
+				height: 250px;
+				box-shadow: 0px 0px 5px #000000;
+				float: left;	
+				margin: 10px;		
+			}
+			.box li img{
+				width: 200px;
+				height: 200px;
+			}
+			.box li p{
+				text-align: center;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			{{name}}
+			<input type="button" value="获取数据" @click="getdata()"/>
+			<ul class="box" >
+				<li v-for="item in dataList">
+					<img :src="item.img"/>
+					<p>{{item.ct}}</p>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					dataList:[],
+				},
+				methods:{
+					getdata(){
+						/*$.ajax({
+							type:"get",
+							url:"",
+							async:true,
+							success: function(res){
+								console.log(res)
+							}
+						});*/
+						/*axios({
+							method:'get',
+							data:{
+								showapi_appid:'46452',
+								page:2,
+								maxResult:20,
+								showapi_sign:'c3bc2247155b4219bffb60cac4fd315c'
+							},
+							url:'http://route.showapi.com/341-2',
+						}).then(res=>{
+							console.log(res);
+						})*/
+						axios.get('http://route.showapi.com/341-2',{
+							params:{
+								showapi_appid:'46452',
+								page:2,
+								maxResult:20,
+								showapi_sign:'c3bc2247155b4219bffb60cac4fd315c'
+							}
+						}).then(res=>{
+							console.log(res);
+							this.dataList=res.data.showapi_res_body.contentlist;
+							console.log(this.dataList);
+						})
+						
+						axios.post('http://route.showapi.com/341-2',{
+								showapi_appid:'46452',
+								page:2,
+								maxResult:20,
+								showapi_sign:'c3bc2247155b4219bffb60cac4fd315c'
+						
+						}).then(res=>{
+							console.log(res);
+							this.dataList=res.data.showapi_res_body.contentlist;
+							console.log(this.dataList);
+						})
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

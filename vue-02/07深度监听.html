@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{a}}</p>
+			<p>{{b}}</p>
+			<p>{{obj.name}}</p>
+		</div>
+		<script type="text/javascript">
+			let vm=new Vue({
+				el:'#app',
+				data:{
+					a:1111,
+					b:2222,
+					obj:{
+						name:'耿帅',
+						age:20
+					}
+				}
+			})
+//			如果不加deep:true,监听对象不出现弹框,解决办法就是加deep:true
+			vm.$watch('obj',function(){
+				alert(this.obj.name+"发生了变化");
+				},{
+					deep:true
+				}
+			)
+			document.onclick=function(){
+				vm.obj.name='森';
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{message}}
+		</div>
+		<script type="x-template" id="box">
+			<div>
+				欢迎:{{message}}
+			</div>
+		</script>
+		<script type="text/javascript">
+			let vm=new Vue({
+				el:'#app',
+				data:{
+					message:"hello world"
+				},
+				template:'#box',
+			})
+		</script>
+	</body>
+</html>

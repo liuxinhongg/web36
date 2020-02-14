@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<blog-post post-title="耿帅" :likes=6 auther="{a:'aaaaaa'}"></blog-post>
+		</div>
+		<script type="text/javascript">
+			Vue.component('BlogPost',{
+				props:{
+					postTitle:String,
+					auther:Object,
+					likes: {
+				      type: Number,
+				      default: 0,
+				      required: true,
+				      validator: function (value) {
+				        return value >= 0
+				      }
+				    }
+				},
+				template:`
+					<div>
+						<h1>{{postTitle}}</h1>
+						<h2>{{likes}}</h2>
+						<h3>{{auther}}</h3>
+					</div>
+				`
+			})
+			new Vue({
+				el:'#app',
+			})
+		</script>
+	</body>
+</html>

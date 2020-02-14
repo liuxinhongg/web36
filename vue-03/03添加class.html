@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.link{
+				font-size: 32px;
+			}
+			.text{
+				color:red;
+			}
+		</style>	
+	</head>
+	<body>
+		<div id="app">
+			<a href="#" class="link" :class='{text:addclass}'>hello 星期四</a>
+		</div>
+		<script type="text/javascript">
+			let vm=new Vue({
+				el:'#app',
+				data:{
+					addclass:true,
+				}
+			})
+		</script>
+	</body>
+</html>

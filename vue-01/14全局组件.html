@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<web></web>
+			</div>
+		</div>
+		<div id="app1">
+			<div>
+				<web></web>
+			</div>
+		</div>
+		<script type="text/javascript">
+			Vue.component('web',{
+				template:`<div><h2>hello world 你好,太阳!!</h2></div>`,
+				data(){
+					return{
+						msg:'哈哈哈哈'
+					}
+				}
+			})
+			new Vue({
+				el:"#app",
+			})
+			new Vue({
+				el:"#app1",
+			})
+		</script>
+	</body>
+</html>

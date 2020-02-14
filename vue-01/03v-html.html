@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		
+	</head>
+	<body>
+		<div id="box">
+			<p>{{info}}</p>
+			<div v-html="info"></div>
+		</div>
+		<script type="text/javascript">
+			let vm=new Vue({
+				el:'#box',
+				data:{
+					info:'<h1>今天星期一，真好，我还在家！哈哈哈哈</h1>'
+				}
+			})
+		</script>
+	</body>
+</html>

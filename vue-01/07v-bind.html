@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.min.js" ></script>
+		<style type="text/css">
+			img{
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<img v-bind:src="imgUrl"/>
+			<img :src="imgUrl" :title="imgalt"/>
+		</div>
+		<script type="text/javascript">
+			let vm=new Vue({
+				el:'#app',
+				data:{
+					imgUrl:'img/02.jpg',
+					imgalt:'今天是星期二，等待出门！！'
+				}
+			})
+		</script>
+	</body>
+</html>

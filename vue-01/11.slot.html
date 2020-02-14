@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<hello>
+				<div>1111111</div>
+				<h3><font color="aqua">{{msg}}</font></h3> 
+				<div>1111111</div>
+			</hello>
+		</div>
+		<template id="box">
+			<div>
+				<h2><font color="red">我是模板的开始</font></h2>
+				<slot></slot>
+				<h2><font color="chartreuse">我是模板的结束</font></h2>
+				
+			</div>
+		</template>
+		<script type="text/javascript">
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					msg:'时间的高房价的股份',
+				},
+				components:{
+					'hello':{
+						template:'#box'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue-resource/1.5.1/vue-resource.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{name}}
+			<input type="button" value="获取数据" @click="getdata()"/>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					name:'刘新红',
+				},
+				methods:{
+					getdata(){
+//						Promise.then() 箭头函数  模板引擎 class类.....es6的新特性
+						/*Promise.then(function(res){
+							console.log(res);
+						})
+						等价于
+//						回调的箭头函数
+						Promise.then((res)=>{
+							console.log(res);
+						})*/
+						/*this.$http.get('http://route.showapi.com/341-2?showapi_appid=46452&page=1&maxResult=20&showapi_sign=c3bc2247155b4219bffb60cac4fd315c').then(res=>{
+							console.log(res);
+						})*/
+//						get请求:参数要写在{params:{参数}}
+						/*this.$http.get('http://route.showapi.com/341-2',{
+							params:{
+								showapi_appid:'46452',
+								page:2,
+								maxResult:20,
+								showapi_sign:'c3bc2247155b4219bffb60cac4fd315c'
+							}
+						}).then(res=>{
+							console.log(res);
+						})*/
+						this.$http.post('http://route.showapi.com/341-2',{
+								showapi_appid:'46452',
+								page:2,
+								maxResult:20,
+								showapi_sign:'c3bc2247155b4219bffb60cac4fd315c'
+						}).then(res=>{
+							console.log(res);
+						})
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

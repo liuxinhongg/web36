@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue-resource/1.5.1/vue-resource.min.js"></script>
+		
+	</head>
+	<body>
+		<!--https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su-->
+		<div id="app">
+			<input type="text" v-model="word" @keyup="getjsonp()"/>
+			<ul v-for="item in Bdata">
+				<li>{{item}}</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:"#app",
+				data:{
+					word:'',
+					Bdata:[],
+				},
+				methods:{
+					getjsonp(){
+						this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+							params:{
+								wd:this.word,
+							},
+							jsonp:'cb'
+						}).then(res=>{
+							console.log(res);
+							this.Bdata=res.body.s;
+						})
+					}
+				}
+				
+			})
+		</script>
+	</body>
+</html>

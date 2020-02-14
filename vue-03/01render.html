@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			
+		</div>
+		<script type="text/javascript">
+			let vm=new Vue({
+				el:'#app',
+				data:{},
+				render(createElement){
+					return createElement(
+						'ul',[
+							createElement('li',1),
+							createElement('li',2),
+							createElement('li',3),
+						]
+					)
+				}
+			})
+		</script>
+	</body>
+</html>

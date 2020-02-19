@@ -5,6 +5,7 @@ import frist from '@/components/first'
 import page from '@/components/page'
 import home from '@/views/home'
 import detail from '@/views/detail'
+import count from '@/views/count'
 // const User = {
 //     template: `<div>
 //         <h2> User{{$route.params.id}}</h2>
@@ -39,6 +40,11 @@ export default new Router({
             path: '/index',
             name: "home",
             component: home
+        },
+        {
+            path: '/count',
+            name: "count",
+            component: count
         },
         {
             path: '/detail',
